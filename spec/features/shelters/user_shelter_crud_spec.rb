@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Shelter read page", type: :feature do
-  it "User shown shelter info on page visit" do
+  it "shows user shelter info on page visit" do
     shelter_1 = Shelter.create(name: "Dumb Friends League",
                                address: "2080 S. Quebec St.",
                                city: "Denver",
