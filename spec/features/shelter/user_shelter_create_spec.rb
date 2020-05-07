@@ -19,7 +19,7 @@ RSpec.describe "Create shelter page", type: :feature do
       expect(new_shelter.city).to eq("Denver")
       expect(new_shelter.state).to eq("CO")
       expect(new_shelter.zip).to eq("80231")
-      expect(current_path).to eq("/shelters")
+      expect(current_path).to eq('/shelters')
       expect(page).to have_content(new_shelter.name)
   end
 end
