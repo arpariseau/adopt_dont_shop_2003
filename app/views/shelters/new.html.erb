@@ -1,0 +1,10 @@
+<h1>Create New Shelter</h1>
+
+<%= form_tag "/shelters" do %>
+  <%= text_field_tag :name, "Enter shelter name" %>
+  <%= text_field_tag :address, "Enter shelter address" %>
+  <%= text_field_tag :city, "Enter city" %>
+  <%= text_field_tag :state, "Enter state" %>
+  <%= text_field_tag :zip, "Enter ZIP code" %>
+  <%= submit_tag "Create Shelter" %>
+<% end %>
