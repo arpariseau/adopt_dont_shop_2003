@@ -5,3 +5,5 @@
   <p><%= link_to pet.name, "/pets/#{pet.id}" %>
   <%= pet.approx_age %>, <%= pet.sex %>
 <% end %>
+
+<%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>

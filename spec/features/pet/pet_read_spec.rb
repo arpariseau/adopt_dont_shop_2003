@@ -12,7 +12,7 @@ RSpec.describe "Pet read page", type: :feature do
                        name: "Cassidy",
                        description: "A very adorable pupper.",
                        approx_age: 10,
-                       sex: "F",
+                       sex: "female",
                        adopt_status: 'pending',
                        shelter_id: shelter_1.id)
 

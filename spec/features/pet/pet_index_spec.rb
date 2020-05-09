@@ -12,7 +12,7 @@ RSpec.describe "Pets index page", type: :feature do
                        name: "Cassidy",
                        description: "A very adorable pupper.",
                        approx_age: 10,
-                       sex: "F",
+                       sex: "female",
                        adopt_status: 'pending',
                        shelter_id: shelter_1.id)
 
@@ -20,7 +20,7 @@ RSpec.describe "Pets index page", type: :feature do
                        name: "Hobbes",
                        description: "A very mischievous cat.",
                        approx_age: 5,
-                       sex: "M",
+                       sex: "male",
                        adopt_status: 'adoptable',
                        shelter_id: shelter_1.id)
 
