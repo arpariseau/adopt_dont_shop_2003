@@ -4,5 +4,5 @@
   <img src="<% pet.image %>" alt="<% pet.image %>">
   <p><a href="/pets/<%= pet.id %>"><%= pet.name %></a>,
   <%= pet.approx_age %>, <%= pet.sex %> <br/>
-  <a href="/shelters/<%= pet.shelter_id %>"><%= pet.shelter.name %></a>
+  <%= link_to pet.shelter.name, "/shelters/#{pet.shelter_id}" %>
 <% end %>
