@@ -3,7 +3,7 @@
 <% @pets.each do |pet| %>
   <img src="<% pet.image %>" alt="<% pet.image %>">
   <p><%= link_to pet.name, "/pets/#{pet.id}" %>
-  <%= pet.approx_age %>, <%= pet.sex %>
+  <%= pet.approx_age %>, <%= pet.sex %></p>
 <% end %>
 
 <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>

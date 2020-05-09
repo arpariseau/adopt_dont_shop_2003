@@ -9,7 +9,7 @@ RSpec.describe "Shelter update", type: :feature do
                                zip: "80231")
 
     visit "/shelters/#{shelter_1.id}"
-    click_link "Update Shelter"
+    click_button "Update Shelter"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
 
     fill_in :name, with: "Monterey Bay Aquarium"
