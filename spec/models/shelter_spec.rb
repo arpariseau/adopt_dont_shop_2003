@@ -17,6 +17,7 @@ describe Shelter, type: :model do
 
       @cassidy = Pet.create(image: "cute_dog.jpg",
                          name: "Cassidy",
+                         description: "A very adorable pupper.",
                          approx_age: 10,
                          sex: "F",
                          adopt_status: 'pending',

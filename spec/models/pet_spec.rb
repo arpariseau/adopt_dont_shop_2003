@@ -17,6 +17,7 @@ describe Pet, type: :model do
 
       @cassidy = Pet.create(image: "cute_dog.jpg",
                          name: "Cassidy",
+                         description: "A very adorable pupper.",
                          approx_age: 10,
                          sex: "F",
                          adopt_status: 'pending',
@@ -24,6 +25,7 @@ describe Pet, type: :model do
 
       @hobbes = Pet.create(image: "smug_cat.jpg",
                          name: "Hobbes",
+                         description: "A very mischievous cat.",
                          approx_age: 5,
                          sex: "M",
                          adopt_status: 'adoptable',
