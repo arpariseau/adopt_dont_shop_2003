@@ -8,3 +8,5 @@
 <% else %>
 <%= @pet.adopt_status %> adoption.
 <% end %></h3>
+
+<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
