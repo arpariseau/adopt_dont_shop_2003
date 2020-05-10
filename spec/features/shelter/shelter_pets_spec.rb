@@ -27,8 +27,10 @@ RSpec.describe "Shelter pets page", type: :feature do
     visit "/shelters/#{@shelter_1.id}/pets"
   end
 
-  it "shows user all adoptable pets from a shelter" do
-    expect(page).to_not have_content(@cassidy.name)
+  it "shows user all pets from a shelter" do
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@cassidy.approx_age)
+    expect(page).to have_content(@cassidy.sex)
     expect(page).to have_content(@hobbes.name)
     expect(page).to have_content(@hobbes.approx_age)
     expect(page).to have_content(@hobbes.sex)
@@ -48,6 +50,41 @@ RSpec.describe "Shelter pets page", type: :feature do
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
     click_button "Pet Index"
     expect(current_path).to eq("/pets")
+  end
+
+  it "can count the number of pets in the shelter" do
+    expect(page).to have_content("There are 2 pets at the shelter")
+  end
+
+  it "can check if adoptable pets comes before pets pending adoption" do
+    expect(page.body.index(@hobbes.name)).to be < page.body.index(@cassidy.name)
+  end
+
+  it "can filter adoptable or pending adoption pets" do
+    expect(page).to have_content("All Pets")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
+    expect(page).to_not have_button "Show All Pets"
+    expect(page).to have_button "Show Only Pets Pending Adoption"
+    click_button "Show Only Adoptable Pets"
+
+    expect(page).to have_content("Adoptable Pets")
+    expect(page).to_not have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
+    expect(page).to_not have_button "Show Only Adoptable Pets"
+    expect(page).to have_button "Show All Pets"
+    click_button "Show Only Pets Pending Adoption"
+
+    expect(page).to have_content("Pets Pending Adoption")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to_not have_content(@hobbes.name)
+    expect(page).to_not have_button "Show Only Pets Pending Adoption"
+    expect(page).to have_button "Show Only Adoptable Pets"
+    click_button "Show All Pets"
+
+    expect(page).to have_content("All Pets")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
   end
 
 end

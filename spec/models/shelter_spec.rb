@@ -30,6 +30,7 @@ describe Shelter, type: :model do
                          adopt_status: 'adoptable',
                          shelter_id: @shelter.id)
     end
+
     it "#all_adoptable" do
       first_pet = @shelter.pets.first
       first_adopt = @shelter.all_adoptable.first
@@ -37,5 +38,14 @@ describe Shelter, type: :model do
       expect(first_pet).to eq(@cassidy)
       expect(first_adopt).to eq(@hobbes)
     end
+
+    it "#all_pending" do
+      last_pet = @shelter.pets.last
+      last_pending = @shelter.all_pending.last
+
+      expect(last_pet).to eq(@hobbes)
+      expect(last_pending).to eq(@cassidy)
+    end
+
   end
 end
