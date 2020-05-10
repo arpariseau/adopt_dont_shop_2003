@@ -29,7 +29,7 @@ RSpec.describe "Delete pet", type: :feature do
     expect(page).to have_content(hobbes.name)
 
     visit "/pets/#{hobbes.id}"
-    click_on "Delete Pet"
+    click_button "Delete Pet"
     expect(current_path).to eq("/pets")
 
     expect(page).to have_content(cassidy.name)

@@ -14,6 +14,46 @@
  *= require_self
  */
 
+body {
+  background-image: url(pet-background.jpg);
+  text-align: center;
+}
+
+nav {
+  font-family: "Tahoma", Geneva, sans-serif;
+  font-style: bold;
+  font-size: 25px;
+}
+
+.nav-link{
+  font-family: "Tahoma", Geneva, sans-serif;
+  font-style: bold;
+  font-size: 20px;
+}
+
+h1 {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 60px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.welcome {
+  font-size: 120px;
+}
+
+h2 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: "Tahoma", Geneva, sans-serif;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
 img {
   width: 360px;
   height: 240px;

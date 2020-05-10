@@ -1,6 +1,6 @@
-<header><h1>All Shelters</h1></header>
-<%= link_to "Sort Alphabetically", "/shelters?sort=alpha" %> <br/>
-<%= link_to "Sort by Number of Pets", "/shelters?sort=by_pets" %>
+<h1>All Shelters</h1>
+<p><%= link_to "Sort Alphabetically", "/shelters?sort=alpha" %> <br/>
+<%= link_to "Sort by Number of Pets", "/shelters?sort=by_pets" %></p>
 
 <% @shelters.each do |shelter|%>
   <h2><%= link_to shelter.name, "/shelters/#{shelter.id}" %></h2>

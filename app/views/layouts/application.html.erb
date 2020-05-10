@@ -9,8 +9,8 @@
   </head>
 
   <body>
-    <nav><%= link_to "Shelter Index", "/shelters" %> |
-    <%= link_to "Pet Index", "/pets" %></nav>
+    <nav><%= link_to "Shelter Index", "/shelters", class: "nav-link" %> |
+    <%= link_to "Pet Index", "/pets", class: "nav-link" %></nav>
     <%= yield %>
   </body>
 </html>

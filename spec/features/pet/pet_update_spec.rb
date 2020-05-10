@@ -20,7 +20,7 @@ RSpec.describe "Pet update", type: :feature do
   end
 
   it "updates a pet" do
-    click_on "Update Pet"
+    click_button "Update Pet"
     expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
 
     fill_in :image, with: "smug_cat.jpg"
@@ -38,13 +38,13 @@ RSpec.describe "Pet update", type: :feature do
   end
 
   it "has links to the shelter and pet indexes from pet edit page" do
-    click_on "Update Pet"
+    click_button "Update Pet"
     expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
     click_on "Pet Index"
     expect(current_path).to eq("/pets")
 
     click_link "#{@pet_1.name}"
-    click_on "Update Pet"
+    click_button "Update Pet"
     expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
     click_on "Shelter Index"
     expect(current_path).to eq("/shelters")

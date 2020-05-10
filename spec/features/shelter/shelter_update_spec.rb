@@ -11,7 +11,7 @@ RSpec.describe "Shelter update", type: :feature do
     visit "/shelters/#{@shelter_1.id}"
   end
   it "updates a shelter" do
-    click_on "Update Shelter"
+    click_button "Update Shelter"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
 
     fill_in :name, with: "Monterey Bay Aquarium"
@@ -30,7 +30,7 @@ RSpec.describe "Shelter update", type: :feature do
   end
 
   it "has links to the shelter and pet indexes from shelter edit page" do
-    click_on "Update Shelter"
+    click_button "Update Shelter"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
     click_on "Shelter Index"
     expect(current_path).to eq("/shelters")
