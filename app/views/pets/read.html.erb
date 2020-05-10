@@ -5,8 +5,10 @@
 <h3><%= @pet.name %> is
 <% if @pet.is_adoptable? %>
 <%= @pet.adopt_status %>
+<%= button_to "Change to Adoption Pending", "/pets/#{@pet.id}/pending", method: :patch %>
 <% else %>
 <%= @pet.adopt_status %> adoption.
+<%= button_to "Change to Adoptable", "/pets/#{@pet.id}/adoptable", method: :patch %>
 <% end %></h3>
 
 <%= button_to "Update Pet", "/pets/#{@pet.id}/edit", method: :get %>

@@ -31,6 +31,18 @@ class PetsController < ApplicationController
     redirect_to "/pets"
   end
 
+  def adoptable
+    pet = Pet.find(params[:id])
+    pet.update(adopt_status: "adoptable")
+    redirect_to "/pets/#{pet.id}"
+  end
+
+  def pending
+    pet = Pet.find(params[:id])
+    pet.update(adopt_status: "pending")
+    redirect_to "/pets/#{pet.id}"
+  end
+
   private
   def pet_params
     params.permit(:name, :image, :description, :approx_age, :sex)
