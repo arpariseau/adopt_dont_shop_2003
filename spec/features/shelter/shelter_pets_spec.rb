@@ -50,4 +50,8 @@ RSpec.describe "Shelter pets page", type: :feature do
     expect(current_path).to eq("/pets")
   end
 
+  it "can count the number of pets in the shelter" do
+    expect(page).to have_content("There are 2 pets at the shelter")
+  end
+
 end

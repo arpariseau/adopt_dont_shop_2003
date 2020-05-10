@@ -5,4 +5,8 @@ class Pet < ApplicationRecord
   def is_adoptable?
     adopt_status == "adoptable"
   end
+
+  def self.number_pets
+    count
+  end
 end
