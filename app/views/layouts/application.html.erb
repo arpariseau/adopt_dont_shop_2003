@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <nav><%= button_to "Shelter Index", "/shelters", method: :get %>
+    <%= button_to "Pet Index", "/pets", method: :get %></nav>
     <%= yield %>
   </body>
 </html>
