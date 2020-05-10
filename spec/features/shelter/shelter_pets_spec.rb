@@ -27,13 +27,13 @@ RSpec.describe "Shelter pets page", type: :feature do
     visit "/shelters/#{@shelter_1.id}/pets"
   end
 
-  it "shows user all adoptable pets from a shelter" do
-    expect(page).to have_content(@hobbes.name)
-    expect(page).to have_content(@hobbes.approx_age)
-    expect(page).to have_content(@hobbes.sex)
+  it "shows user all pets from a shelter" do
     expect(page).to have_content(@cassidy.name)
     expect(page).to have_content(@cassidy.approx_age)
     expect(page).to have_content(@cassidy.sex)
+    expect(page).to have_content(@hobbes.name)
+    expect(page).to have_content(@hobbes.approx_age)
+    expect(page).to have_content(@hobbes.sex)
   end
 
   it "has a link for each pet in their name" do
@@ -58,6 +58,33 @@ RSpec.describe "Shelter pets page", type: :feature do
 
   it "can check if adoptable pets comes before pets pending adoption" do
     expect(page.body.index(@hobbes.name)).to be < page.body.index(@cassidy.name)
+  end
+
+  it "can filter adoptable or pending adoption pets" do
+    expect(page).to have_content("All Pets")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
+    expect(page).to_not have_button "Show All Pets"
+    expect(page).to have_button "Show Only Pets Pending Adoption"
+    click_button "Show Only Adoptable Pets"
+
+    expect(page).to have_content("Adoptable Pets")
+    expect(page).to_not have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
+    expect(page).to_not have_button "Show Only Adoptable Pets"
+    expect(page).to have_button "Show All Pets"
+    click_button "Show Only Pets Pending Adoption"
+
+    expect(page).to have_content("Pets Pending Adoption")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to_not have_content(@hobbes.name)
+    expect(page).to_not have_button "Show Only Pets Pending Adoption"
+    expect(page).to have_button "Show Only Adoptable Pets"
+    click_button "Show All Pets"
+
+    expect(page).to have_content("All Pets")
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@hobbes.name)
   end
 
 end

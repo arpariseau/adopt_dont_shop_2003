@@ -32,6 +32,7 @@ class SheltersController < ApplicationController
   end
 
   def pets
+    @adoptable = ActiveModel::Type::Boolean.new.cast(params[:adoptable])
     @shelter = Shelter.find(params[:id])
     @adopt = @shelter.all_adoptable
     @pending = @shelter.all_pending
