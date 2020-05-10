@@ -52,4 +52,22 @@ RSpec.describe "Shelter index page", type: :feature do
     expect(current_path).to eq("/shelters")
   end
 
+  it "can sort the index alphabetically" do
+    expect(page.body.index(@shelter_1.name)).to be < page.body.index(@shelter_2.name)
+    click_button "Sort Alphabetically"
+    expect(page.body.index(@shelter_2.name)).to be < page.body.index(@shelter_1.name)
+  end
+
+  it "can sort the index by number of pets" do
+    Pet.create(image: "cute_dog.jpg",
+               name: "Cassidy",
+               description: "A very adorable pupper.",
+               approx_age: 10,
+               sex: "female",
+               adopt_status: 'pending',
+               shelter_id: @shelter_2.id)
+    expect(page.body.index(@shelter_1.name)).to be < page.body.index(@shelter_2.name)
+    click_button "Sort by Number of Pets"
+    expect(page.body.index(@shelter_2.name)).to be < page.body.index(@shelter_1.name)
+  end
 end
