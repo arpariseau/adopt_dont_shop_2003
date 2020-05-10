@@ -27,12 +27,12 @@ RSpec.describe "Create shelter page", type: :feature do
     visit '/shelters'
     click_button "New Shelter"
     expect(current_path).to eq('/shelters/new')
-    click_button "Shelter Index"
+    click_on "Shelter Index"
     expect(current_path).to eq('/shelters')
 
     click_button "New Shelter"
     expect(current_path).to eq('/shelters/new')
-    click_button "Pet Index"
+    click_on "Pet Index"
     expect(current_path).to eq('/pets')
   end
 

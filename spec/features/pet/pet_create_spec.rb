@@ -36,14 +36,14 @@ RSpec.describe "Create pet page", type: :feature do
   it "has links to the shelter and pet indexes from pet create page" do
     click_button "Create Pet"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
-    click_button "Shelter Index"
+    click_on "Shelter Index"
     expect(current_path).to eq("/shelters")
     click_link "#{@shelter_1.name}"
     click_button "Available Pets"
     click_button "Create Pet"
 
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
-    click_button "Pet Index"
+    click_on "Pet Index"
     expect(current_path).to eq("/pets")
   end
 

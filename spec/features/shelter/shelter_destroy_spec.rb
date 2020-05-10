@@ -19,7 +19,7 @@ RSpec.describe "Delete shelter", type: :feature do
     expect(page).to have_content(shelter_2.name)
 
     visit "/shelters/#{shelter_2.id}"
-    click_button "Delete Shelter"
+    click_on "Delete Shelter"
     expect(current_path).to eq("/shelters")
 
     expect(page).to have_content(shelter_1.name)

@@ -25,12 +25,12 @@ RSpec.describe "Shelter read page", type: :feature do
   end
 
   it "has links to the shelter and pet indexes from shelter info page" do
-    click_button "Shelter Index"
+    click_on "Shelter Index"
     expect(current_path).to eq("/shelters")
     click_link "#{@shelter_1.name}"
 
     expect(current_path).to eq("/shelters/#{@shelter_1.id}")
-    click_button "Pet Index"
+    click_on "Pet Index"
     expect(current_path).to eq("/pets")
   end
 
