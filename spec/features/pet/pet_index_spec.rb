@@ -48,4 +48,18 @@ RSpec.describe "Pets index page", type: :feature do
     expect(page).to_not have_content(@hobbes.name)
   end
 
+  it "has a link for each shelter when named" do
+    click_link("#{@shelter_1.name}", match: :first)
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+  end
+
+  it "has a link for each pet in their name" do
+    click_link "#{@cassidy.name}"
+    expect(current_path).to eq("/pets/#{@cassidy.id}")
+
+    visit "/pets"
+    click_link "#{@hobbes.name}"
+    expect(current_path).to eq("/pets/#{@hobbes.id}")
+  end
+
 end

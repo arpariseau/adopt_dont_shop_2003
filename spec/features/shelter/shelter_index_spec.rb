@@ -33,4 +33,13 @@ RSpec.describe "Shelter index page", type: :feature do
     expect(page).to_not have_content(@shelter_2.name)
   end
 
+  it "has a link for each shelter in their name" do
+    click_link "#{@shelter_1.name}"
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+
+    visit "/shelters"
+    click_link "#{@shelter_2.name}"
+    expect(current_path).to eq("/shelters/#{@shelter_2.id}")
+  end
+
 end
