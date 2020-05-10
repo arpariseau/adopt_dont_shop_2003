@@ -28,10 +28,12 @@ RSpec.describe "Shelter pets page", type: :feature do
   end
 
   it "shows user all adoptable pets from a shelter" do
-    expect(page).to_not have_content(@cassidy.name)
     expect(page).to have_content(@hobbes.name)
     expect(page).to have_content(@hobbes.approx_age)
     expect(page).to have_content(@hobbes.sex)
+    expect(page).to have_content(@cassidy.name)
+    expect(page).to have_content(@cassidy.approx_age)
+    expect(page).to have_content(@cassidy.sex)
   end
 
   it "has a link for each pet in their name" do
@@ -52,6 +54,10 @@ RSpec.describe "Shelter pets page", type: :feature do
 
   it "can count the number of pets in the shelter" do
     expect(page).to have_content("There are 2 pets at the shelter")
+  end
+
+  it "can check if adoptable pets comes before pets pending adoption" do
+    expect(page.body.index(@hobbes.name)).to be < page.body.index(@cassidy.name)
   end
 
 end

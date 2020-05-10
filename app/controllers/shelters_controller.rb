@@ -33,7 +33,8 @@ class SheltersController < ApplicationController
 
   def pets
     @shelter = Shelter.find(params[:id])
-    @pets = @shelter.all_adoptable
+    @adopt = @shelter.all_adoptable
+    @pending = @shelter.all_pending
   end
 
   private

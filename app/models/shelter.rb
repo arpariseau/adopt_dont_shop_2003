@@ -5,4 +5,8 @@ class Shelter < ApplicationRecord
   def all_adoptable
     pets.find_all{|pet| pet.is_adoptable?}
   end
+
+  def all_pending
+    pets.find_all{|pet| !pet.is_adoptable?}
+  end
 end
