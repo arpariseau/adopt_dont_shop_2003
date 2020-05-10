@@ -64,23 +64,23 @@ RSpec.describe "Shelter pets page", type: :feature do
     expect(page).to have_content("All Pets")
     expect(page).to have_content(@cassidy.name)
     expect(page).to have_content(@hobbes.name)
-    expect(page).to_not have_button "Show All Pets"
-    expect(page).to have_button "Show Only Pets Pending Adoption"
-    click_button "Show Only Adoptable Pets"
+    expect(page).to_not have_link "Show All Pets"
+    expect(page).to have_link "Show Only Pets Pending Adoption"
+    click_on "Show Only Adoptable Pets"
 
     expect(page).to have_content("Adoptable Pets")
     expect(page).to_not have_content(@cassidy.name)
     expect(page).to have_content(@hobbes.name)
-    expect(page).to_not have_button "Show Only Adoptable Pets"
-    expect(page).to have_button "Show All Pets"
-    click_button "Show Only Pets Pending Adoption"
+    expect(page).to_not have_link "Show Only Adoptable Pets"
+    expect(page).to have_link "Show All Pets"
+    click_on "Show Only Pets Pending Adoption"
 
     expect(page).to have_content("Pets Pending Adoption")
     expect(page).to have_content(@cassidy.name)
     expect(page).to_not have_content(@hobbes.name)
-    expect(page).to_not have_button "Show Only Pets Pending Adoption"
-    expect(page).to have_button "Show Only Adoptable Pets"
-    click_button "Show All Pets"
+    expect(page).to_not have_link "Show Only Pets Pending Adoption"
+    expect(page).to have_link "Show Only Adoptable Pets"
+    click_on "Show All Pets"
 
     expect(page).to have_content("All Pets")
     expect(page).to have_content(@cassidy.name)

@@ -11,7 +11,7 @@ RSpec.describe "Create pet page", type: :feature do
   end
 
   it "creates a new adoptable pet at a shelter" do
-    click_link "Create Pet"
+    click_button "Create Pet"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
     fill_in :image, with: "cute_dog.jpg"
     fill_in :name, with: "Cassidy"
@@ -34,13 +34,13 @@ RSpec.describe "Create pet page", type: :feature do
   end
 
   it "has links to the shelter and pet indexes from pet create page" do
-    click_link "Create Pet"
+    click_button "Create Pet"
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
     click_button "Shelter Index"
     expect(current_path).to eq("/shelters")
     click_link "#{@shelter_1.name}"
     click_button "Available Pets"
-    click_link "Create Pet"
+    click_button "Create Pet"
 
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
     click_button "Pet Index"

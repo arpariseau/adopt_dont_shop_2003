@@ -54,7 +54,7 @@ RSpec.describe "Shelter index page", type: :feature do
 
   it "can sort the index alphabetically" do
     expect(page.body.index(@shelter_1.name)).to be < page.body.index(@shelter_2.name)
-    click_button "Sort Alphabetically"
+    click_on "Sort Alphabetically"
     expect(page.body.index(@shelter_2.name)).to be < page.body.index(@shelter_1.name)
   end
 
@@ -67,7 +67,7 @@ RSpec.describe "Shelter index page", type: :feature do
                adopt_status: 'pending',
                shelter_id: @shelter_2.id)
     expect(page.body.index(@shelter_1.name)).to be < page.body.index(@shelter_2.name)
-    click_button "Sort by Number of Pets"
+    click_on "Sort by Number of Pets"
     expect(page.body.index(@shelter_2.name)).to be < page.body.index(@shelter_1.name)
   end
 end

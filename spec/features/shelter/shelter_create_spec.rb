@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Create shelter page", type: :feature do
   it "creates a new shelter" do
     visit '/shelters'
-    click_link "New Shelter"
+    click_button "New Shelter"
     expect(current_path).to eq('/shelters/new')
 
     fill_in :name, with: "Dumb Friends League"
@@ -11,7 +11,7 @@ RSpec.describe "Create shelter page", type: :feature do
     fill_in :city, with: "Denver"
     fill_in :state, with: "CO"
     fill_in :zip, with: "80231"
-    click_on "Create Shelter"
+    click_button "Create Shelter"
 
     new_shelter = Shelter.last
     expect(new_shelter.name).to eq("Dumb Friends League")
@@ -25,12 +25,12 @@ RSpec.describe "Create shelter page", type: :feature do
 
   it "has links to the shelter and pet indexes from shelter create page" do
     visit '/shelters'
-    click_link "New Shelter"
+    click_button "New Shelter"
     expect(current_path).to eq('/shelters/new')
     click_button "Shelter Index"
     expect(current_path).to eq('/shelters')
 
-    click_link "New Shelter"
+    click_button "New Shelter"
     expect(current_path).to eq('/shelters/new')
     click_button "Pet Index"
     expect(current_path).to eq('/pets')
