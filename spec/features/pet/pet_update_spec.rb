@@ -17,7 +17,7 @@ RSpec.describe "Pet update", type: :feature do
                        shelter_id: shelter_1.id)
 
       visit "/pets/#{pet_1.id}"
-      click_link "Update Pet"
+      click_button "Update Pet"
       expect(current_path).to eq("/pets/#{pet_1.id}/edit")
 
       fill_in :image, with: "smug_cat.jpg"

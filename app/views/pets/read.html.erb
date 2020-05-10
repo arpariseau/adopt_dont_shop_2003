@@ -9,5 +9,5 @@
 <%= @pet.adopt_status %> adoption.
 <% end %></h3>
 
-<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
+<%= button_to "Update Pet", "/pets/#{@pet.id}/edit", method: :get %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
